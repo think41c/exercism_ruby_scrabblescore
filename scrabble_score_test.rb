@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'scrabble_score'
 
 class ScrabbleTest < Minitest::Test
