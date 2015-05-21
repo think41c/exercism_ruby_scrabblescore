@@ -12,6 +12,7 @@ class Scrabble
   def score
     p @letter_values["t"]
     p @letter
+    
     if @letter_values[@letter].nil?
       0
     else
