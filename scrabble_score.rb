@@ -14,7 +14,7 @@ class Scrabble
     if @letter.nil? || @letter[0] == " "
       total_score = 0 
     else
-      @letter.split("").each do |x|
+      @letter.downcase.split("").each do |x|
         if x.nil?
           total_score = 0 
         else

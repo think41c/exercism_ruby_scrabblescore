@@ -32,7 +32,6 @@ class ScrabbleTest < Minitest::Test
   end
 
   def test_scores_are_case_insensitive
-    skip
     assert_equal 20, Scrabble.new('MULTIBILLIONAIRE').score
   end
 
