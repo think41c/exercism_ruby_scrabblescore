@@ -11,29 +11,29 @@ class Scrabble
                       "k" => 5, "j" => 8, "x" => 8, "q" => 10, "z" => 10
                     }
     @letter = letter
+    @total_score = 0
   end
 
-  def input_check
+  def input_parse
     if @letter.nil? || @letter == " "
       total_score = 0
     else
       @letter = @letter.gsub(/\W/, "").downcase
     end
-
   end
 
   def score
-    input_check
-    total_score = 0
-    
+    input_parse
+    if @letter == nil then return 0 end
+
     @letter.split("").each do |x|
       if x.nil?
-        total_score = 0 
+        @total_score = 0 
       else
-        total_score += @letter_values[x]
+        @total_score += @letter_values[x]
       end
     end
-    total_score
+    @total_score
   end
 end
 
