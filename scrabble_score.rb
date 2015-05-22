@@ -9,6 +9,10 @@ class Scrabble
     @letter = letter
   end
 
+  def self.score(letter)
+    Scrabble.new(letter).score
+  end
+
   def score
     total_score = 0
     if @letter.nil? || @letter[0] == " "
@@ -28,3 +32,5 @@ end
 
 a = Scrabble.new('street').score
 p a
+
+Scrabble.score('alacrity')
