@@ -29,8 +29,3 @@ class Scrabble
     end
   end
 end
-
-a = Scrabble.new('street').score
-p a
-
-Scrabble.score('alacrity')
