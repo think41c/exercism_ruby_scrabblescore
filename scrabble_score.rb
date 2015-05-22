@@ -11,18 +11,20 @@ class Scrabble
 
   def score
     total_score = 0
-    @letter.split("").each do |x|
-      total_score += @letter_values[x]
-    end
-        
-    if @letter_values[@letter].nil?
-      0
+    if @letter.nil? || @letter[0] == " "
+      total_score = 0 
     else
-      @letter_values[@letter]
-    end
+      @letter.split("").each do |x|
+        if x.nil?
+          total_score = 0 
+        else
+          total_score += @letter_values[x]
+        end
+      end
     total_score
+    end
   end
 end
 
-a = Scrabble.new('tz').score
+a = Scrabble.new('street').score
 p a

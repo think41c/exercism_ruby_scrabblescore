@@ -24,7 +24,6 @@ class ScrabbleTest < Minitest::Test
   end
 
   def test_simple_word_scores_the_number_of_letters
-    skip
     assert_equal 6, Scrabble.new('street').score
   end
 
