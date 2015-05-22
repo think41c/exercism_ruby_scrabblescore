@@ -1,5 +1,9 @@
 class Scrabble 
   
+  def self.score(letter)
+    Scrabble.new(letter).score
+  end
+
   def initialize(letter)
     @letter_values = { "a" => 1, "e" => 1, "i" => 1, "o" => 1, "u" => 1, "l" => 1, "n" => 1, 
                       "r" => 1, "s" => 1, "t" => 1, "d" => 2, "g" => 2, "b" => 3, "c" => 3, 
@@ -9,23 +13,28 @@ class Scrabble
     @letter = letter
   end
 
-  def self.score(letter)
-    Scrabble.new(letter).score
+  def input_check
+    if @letter.nil? || @letter == " "
+      total_score = 0
+    else
+      @letter = @letter.gsub(/\W/, "").downcase
+    end
+
   end
 
   def score
+    input_check
     total_score = 0
-    if @letter.nil? || @letter[0] == " "
-      total_score = 0 
-    else
-      @letter.downcase.split("").each do |x|
-        if x.nil?
-          total_score = 0 
-        else
-          total_score += @letter_values[x]
-        end
+    
+    @letter.split("").each do |x|
+      if x.nil?
+        total_score = 0 
+      else
+        total_score += @letter_values[x]
       end
-    total_score
     end
+    total_score
   end
 end
+
+p Scrabble.new('MULTIBILLIONAI RE').score
