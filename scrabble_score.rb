@@ -10,17 +10,19 @@ class Scrabble
   end
 
   def score
-    p @letter_values["t"]
-    p @letter
-    
+    total_score = 0
+    @letter.split("").each do |x|
+      total_score += @letter_values[x]
+    end
+        
     if @letter_values[@letter].nil?
       0
     else
       @letter_values[@letter]
     end
-
+    total_score
   end
 end
 
-a = Scrabble.new('t').score
-a
+a = Scrabble.new('tz').score
+p a
