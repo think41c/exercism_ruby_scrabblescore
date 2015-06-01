@@ -25,8 +25,9 @@ class Scrabble
   end
 
   def score
-    if @letter == nil then return 0 end
-
+    # if @letter == nil then return 0 end
+    return 0 if @letter == nil
+    
     @letter.split("").each do |x|
       if x.nil?
         @total_score = 0 
